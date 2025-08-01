@@ -2,48 +2,67 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Em có iu anh hông? 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Em có iu anh hông? 🥺</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fff0f5;
+      background-image: url('https://i.imgur.com/dZ5wR2L.jpeg'); /* Ảnh nền lãng mạn */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       text-align: center;
-      margin-top: 100px;
+      padding-top: 100px;
+      color: #fff;
+      overflow: hidden;
     }
+
     h1 {
-      font-size: 32px;
-      color: #ff1493;
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 12px;
     }
+
     button {
-      padding: 12px 24px;
+      padding: 10px 20px;
+      font-size: 20px;
       margin: 20px;
-      font-size: 18px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.2s ease;
     }
+
     #yesBtn {
-      background-color: #ff69b4;
+      background-color: #ff4081;
       color: white;
+      z-index: 2;
     }
+
     #noBtn {
-      background-color: #d3d3d3;
+      background-color: #ccc;
       color: black;
       position: absolute;
+      z-index: 2;
     }
+
     #message {
-      font-size: 22px;
-      color: hotpink;
-      margin-top: 30px;
+      font-size: 24px;
+      color: yellow;
+      margin-top: 40px;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>Em có iu anh hông? 🥺</h1>
-  <button id="yesBtn">Có 🥰</button>
-  <button id="noBtn">Không 😭</button>
+  <h1>Em có iu anh hông? 🥺</h1><br>
+  <button id="yesBtn">Có</button>
+  <button id="noBtn">Không</button>
   <p id="message"></p>
 
   <script>
@@ -51,15 +70,24 @@
     const noBtn = document.getElementById("noBtn");
     const message = document.getElementById("message");
 
-    yesBtn.addEventListener("click", function () {
-      message.innerText = "Yêu anh nhiều nhaa 😘";
+    let yesFontSize = 20;
+    const maxFontSize = 300;
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+
+      // Tăng kích thước nút "Có"
+      if (yesFontSize < maxFontSize) {
+        yesFontSize += 10;
+        yesBtn.style.fontSize = `${yesFontSize}px`;
+      }
     });
 
-    noBtn.addEventListener("mouseover", function () {
-      const i = Math.floor(Math.random() * (window.innerWidth - 100));
-      const j = Math.floor(Math.random() * (window.innerHeight - 100));
-      noBtn.style.left = i + "px";
-      noBtn.style.top = j + "px";
+    yesBtn.addEventListener("click", () => {
+      message.innerText = "Anh biết màaaa 😍💕";
     });
   </script>
 </body>
