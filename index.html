@@ -1,82 +1,66 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Em có iu anh hông?</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Em có iu anh hông? 💘</title>
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #fff0f5;
+      text-align: center;
+      margin-top: 100px;
     }
-
     h1 {
-      font-size: 2.5em;
+      font-size: 32px;
       color: #ff1493;
     }
-
-    #buttons {
-      margin-top: 30px;
-    }
-
     button {
-      font-size: 1.5em;
-      padding: 10px 30px;
+      padding: 12px 24px;
       margin: 20px;
+      font-size: 18px;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: 0.2s ease;
     }
-
     #yesBtn {
       background-color: #ff69b4;
       color: white;
     }
-
     #noBtn {
-      background-color: #ccc;
-      color: white;
+      background-color: #d3d3d3;
+      color: black;
       position: absolute;
     }
-
-    img {
-      width: 250px;
-      margin-top: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px pink;
-    }
-
-    audio {
-      display: none;
+    #message {
+      font-size: 22px;
+      color: hotpink;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-
-  <h1>Em có iu anh hông? 💖</h1>
-  <img src="data:image/jpeg;base64,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" alt="cute gif" />
-  <div id="buttons">
-    <button id="yesBtn" onclick="alert('Anh cũng iu em 😍')">Có</button>
-    <button id="noBtn">Không</button>
-  </div>
-
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
-    Trình duyệt của bạn không hỗ trợ nhạc.
-  </audio>
+  <h1>Em có iu anh hông? 🥺</h1>
+  <button id="yesBtn">Có 🥰</button>
+  <button id="noBtn">Không 😭</button>
+  <p id="message"></p>
 
   <script>
-    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
 
-    noBtn.addEventListener('mouseover', () => {
-      const x = Math.floor(Math.random() * (window.innerWidth - 100));
-      const y = Math.floor(Math.random() * (window.innerHeight - 50));
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
+    yesBtn.addEventListener("click", function () {
+      message.innerText = "Yêu anh nhiều nhaa 😘";
+    });
+
+    noBtn.addEventListener("mouseover", function () {
+      const i = Math.floor(Math.random() * (window.innerWidth - 100));
+      const j = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.left = i + "px";
+      noBtn.style.top = j + "px";
     });
   </script>
-
 </body>
 </html>
